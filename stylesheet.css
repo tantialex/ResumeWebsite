@@ -1,5 +1,6 @@
 /*Imports Main Font*/
 @import url(http://fonts.googleapis.com/css?family=Julius+Sans+One);
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,900,800);
 #Back-of-Page{
 	width:100%;
 	height:auto;
@@ -18,14 +19,13 @@
 }
 
 /* --------------- NavigationBar --------------- */
-#NavBar{
-	width:100%;
-	max-width:1920px;
-	background-color: rgba(255,255,255,0.8);
-	position:fixed;
-	z-index:999;
+#NavBar {
+    width: 100%;
+    max-width: 1920px;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    z-index: 999;
 }
-/*Affects each tile within the Navigation Bar*/
 #NavBar .navBox{
     	padding-top:12px;
     	padding-bottom:10px;
@@ -33,7 +33,7 @@
     	color:black;
     	text-transform:uppercase;
     	font-weight:bold;
-    	outline:2px solid black; 
+    	outline:2px solid black;
 }
 #NavBar .navBox:hover{
 	background-color: rgba(0,0,0,0.8);
@@ -301,40 +301,42 @@
 	border:2px solid red;
 	height:auto;
 }
-#Projects .projectBox::before{
-	display:block;
-	position:absolute;
-	top:0;
-	z-index:4;
-	content:"";
-	background-image:url('Images/project_box_top.png');
-	background-size:100% auto;
-	background-repeat:no-repeat;
-	width:100%;
-	height:40px;
+#Projects #Projects-Container .project-box-wrapper {
+    display:block;
+    position:relative;
+    width: 1000px;
+    min-height:200px;
+    margin-top:50px;
+    margin-bottom:50px;
+    border:2px blue solid;
+    overflow:hidden;
 }
 #Projects .projectBox{
-	z-index:3;
-	display:block;
-	position:relative;
-	width:80%;
-	min-height:150px;
-	height:auto;
-	margin-top:50px;
-	margin-bottom:50px;
-	padding-top:50px;
-	padding-bottom:50px;
+    top:0px;
+    width:100%;
+    height:100%;
 	background-image:url('Images/project_box_middle.png');
 	background-size:100% auto;
 	background-repeat:repeat;
-	background-position:top;
 	border:2px solid yellow;
+}
+#Projects .projectBox::before{
+    display:block;
+    position:absolute;
+    z-index:3;
+    top:0px;
+    content:"";
+    background-image:url('Images/project_box_top.png');
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    width:100%;
+    height:45px;
 }
 #Projects .projectBox:after{
 	display:block;
-	position:absolute;
-	z-index:4;
-	bottom:0px;
+    position:absolute;
+    z-index:3;
+    bottom:0px;
 	content:"";
 	background-image:url('Images/project_box_bottom.png');
 	background-size:100% auto;
@@ -342,6 +344,44 @@
 	background-position:bottom;
 	width:100%;
 	height:45px;
+}
+#Projects #Projects-Container .projectBox .project-box-content-wrapper {
+    position:absolute;
+    width:97%;
+    height:100%;
+    z-index:1;
+	top:0;
+}
+#Projects #Projects-Container .projectBox .project-box-content-wrapper .project-box-background-wrapper {
+	position:absolute;
+    top:0;
+	width:100%;
+	height:100%;
+	z-index:-1;
+	background-size:100% auto;
+	opacity:0.3;
+	overflow:hidden;
+	background-repeat:no-repeat;
+	background-position:center top;
+}
+#Projects #Projects-Container .projectBox .project-box-content-wrapper .project-box-content {
+    position:relative;
+    margin-top:45px;
+    width:97%;
+    border:2px red solid;
+}
+#Projects #Projects-Container .projectBox .project-box-content-wrapper .project-box-content h2{
+    display:block;
+    text-align:center;
+	font-size:60px;
+    font-family: 'Exo 2', sans-serif;
+    color:black;
+}
+#Projects #Projects-Container .projectBox .project-box-content-wrapper .project-box-content .project-hidden-information{
+    display:block;
+    font-size:30px;
+    color:black;
+    margin-top:100px;
 }
 #Projects #Projects-Container .opened{
 	animation-name: card-box-open;
@@ -353,10 +393,10 @@
     	animation-duration: 2s;
     	animation-fill-mode: forwards;
 }
-#Projects #Projects-Container .closed .project-information{
+#Projects #Projects-Container .closed .project-hidden-information{
 	display:none;
 }
-#Projects #Projects-Container .open .project-information{
+#Projects #Projects-Container .opened .project-hidden-information{
 	display:inline;
 }
 /* --------------- Animations --------------- */
@@ -366,18 +406,18 @@
 }
 @keyframes card-box-open{
     	0%{
- 		height:100px;   
+ 		height:200px;
     	}
    	100%{
-   		height:auto;
+   		height:400px;
    	}
 }
 @keyframes card-box-close{
     	0%{
- 		height:auto;   
+ 		height:400px;
     	}
    	100%{
-   		height:100px;
+   		height:200px;
    	}
 }
 /* --------------- Small Screen Adjustments --------------- */
