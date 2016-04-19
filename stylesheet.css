@@ -5,7 +5,7 @@
 	width:100%;
 	height:auto;
 	z-index:0;
-	background-image:url('Images/page_background.png');
+    background-color:black;
 	background-size: 100% 100%;
 }
 /*Container for whole web-page content*/
@@ -42,7 +42,7 @@
 }
 #NavBar .navBox:hover{
 	background-color: rgba(0,0,0,0.8);
-	color: rgb(0,255,255);
+	color:#00ffff;
 }
 
 /* --------------- Each Panel --------------- */
@@ -61,10 +61,12 @@
    	background-repeat: repeat;
 }
 .dark-backdrop{
-	background-image:url('Images/background_dark.jpg');
+    background-color:#262626;
+    color:white;
 }
 .bright-backdrop{
-	background-image:url('Images/background_bright.jpg');
+    background-color:#004d4d;
+    color:white;
 }
 .panelContainer{
 	display:inline-block;
@@ -85,7 +87,6 @@
 	display:block;
 	padding-top:20px;
 	z-index:2;
-	color:black;
 }
 .heading h1{
 	font-size:60px;
@@ -114,7 +115,6 @@
 	z-index:2;
 	font-size:16px;
 	display:inline-block;
-	color:black;
 }
 /*White card containing information*/
 .cardContainer{
@@ -190,6 +190,7 @@
 }	
 #Languages .cardContainer{
 	text-align:center;
+    color:black;
 }
 #Languages .cardContainer h3::before{
 	display:inline-block;	
@@ -209,10 +210,8 @@
 }
 #Education #selectionContainer .time-option h3{
 	display:inline-block;
-	width:32%;	
-	color:black;
-	margin-top:30px;	
-	color:rgb(0,255,255);
+	width:32%;
+	margin-top:30px;
 	opacity:0.2;
 	text-align:center;	
 }
@@ -376,12 +375,10 @@
     text-align:center;
 	font-size:60px;
     font-family: 'Exo 2', sans-serif;
-    color:black;
 }
 #Projects #Projects-Container .projectBox .project-box-content-wrapper .project-box-content .project-hidden-information{
     display:block;
     font-size:25px;
-    color:black;
     margin-top:70px;
 	text-align: justify;
 	text-justify: auto;
