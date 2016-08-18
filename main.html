@@ -1,0 +1,99 @@
+<html>
+<head>
+  <link rel="stylesheet" href="main.css" type"text/css">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="card_rotation.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="donut_chart.js"></script>
+</head>
+<body>
+  <div class="navigation_bar_container">
+    <div class="navigation_bar_wrapper">
+      <ul>
+        <li class="contact_nav list_item">
+          <a>Contact</a>
+        </li>
+        <li class="experience_nav list_item">
+          <a>Experience</a>
+        </li>
+        <li class="skills_nav list_item">
+          <a href="#" onclick="SwitchCard('Skills_Content')">Skills</a>
+        </li>
+        <li class="about_nav list_item">
+          <a href="#" onclick="SwitchCard('About_Content')">About</a>
+        </li>
+        <br class="clear:both;">
+      </ul>
+    </div>
+  </div>
+  <div class="panel_container xCenter">
+    <div class="left_panel panel" style="float:left;">
+      <div class="content_wrapper">
+        <div class="name_wrapper">
+          <p class="name">Alex Tanti</p>
+        </div>
+        <div class="subtext_wrapper">
+          <p class="subtext">Software Developer & Graphics Designer</p>
+        </div>
+      </div>
+    </div
+    ><div class="right_panel panel" style="float:right;">
+      <div id="ContentDisplay" class="content_wrapper">
+        <div id="About_Content" class="content_card content_visible" data-id="1">
+          <div class="container">
+            <div class="text_wrapper xCenter">
+              <p class="about_description">
+                A university student with background knowlegde of front and back end developement. Offering creative design solutions & building web platforms is what I do best. At 18 years of age, certified work experience is but a fantasy however I spend most of my free time typing code and drinking coffee.
+                <br><br>I write in JavaScript, CSS, Java, and Html with familiarity to other languages such as Xml, C# and C++.
+                <br><br>As a developer and a designer, I am confident that my combination of skills and solid educational experience has prepared me to make a significant contribution to any project I potentially embark on.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Skills_Content" class="content_card content_hidden" data-id="2">
+          <div class="container">
+            <div class="left_panel panel" style="float:left">
+              <div class="bar_wrapper">
+                <div class="bar_row">
+                  <p class="title">Html</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+                <div class="bar_row">
+                  <p class="title">JS & JQuery</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+                <div class="bar_row">
+                  <p class="title">Css</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+              </div>
+            </div
+            ><div class="right_panel panel" style="float:right">
+              <div class="bar_wrapper">
+                <div class="bar_row">
+                  <p class="title">Java</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+                <div class="bar_row">
+                  <p class="title">Android</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+                <div class="bar_row">
+                  <p class="title">Xml</p>
+                  <img src="bar_8.png" alt="Error.png"/>
+                </div>
+              </div>
+            </div>
+            <br style="clear:both">
+            <div class="chart_wrapper xCenter">
+              <div id="donutchart" style="width:50%; height:200px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br style="clear:both;">
+  </div>
+</body>
+</html>
