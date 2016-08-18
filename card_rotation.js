@@ -1,19 +1,26 @@
 var currentCard = null;
 var nextCard = null;
+var duringTransition = false;
 
 $(window).load(function(){
   currentCard = $("#About_Content");
 })
 
 function SwitchCard(nextPath){
-  nextCard = $("#"+nextPath);
-  var currentCard_id = $(currentCard).attr("data-id");
-  var nextCard_id = $(nextCard).attr("data-id");
-  if(currentCard_id > nextCard_id){
-    RotateCard("backward");
-  }
-  else if(currentCard_id < nextCard_id){
-    RotateCard("forward");
+  if(!duringTransition){
+    duringTransition = true;
+    nextCard = $("#"+nextPath);
+    var currentCard_id = $(currentCard).attr("data-id");
+    var nextCard_id = $(nextCard).attr("data-id");
+    if(currentCard_id > nextCard_id){
+      RotateCard("backward");
+    }
+    else if(currentCard_id < nextCard_id){
+      RotateCard("forward");
+    }
+    else{
+    duringTransition = false;
+    }
   }
 }
 
@@ -40,6 +47,7 @@ function RotateCard(direction){
      $(currentCard).removeClass("content_visible");
      $(currentCard).addClass("content_hidden");
      currentCard = nextCard;
+     duringTransition = false;
    });
   });
 }
