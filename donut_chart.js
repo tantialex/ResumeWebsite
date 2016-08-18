@@ -2,27 +2,33 @@ google.charts.load("current", {packages:["corechart"]});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
  var data = google.visualization.arrayToDataTable([
-   ['Task', 'Hours per Day'],
-   ['Html',        8],
+   ['Language', 'Score'],
+   ['Html',         8],
    ['JS & JQuery',  9],
    ['Css',          7],
    ['Java',         8],
    ['Android',      8],
-   ['Xml',          7]
+   ['Xml',          6]
  ]);
 
  var options = {
    backgroundColor: {
     fill:'transparent',
    },
-   colors:['#05668D','#039cb0','#028090','#00A896','#00e6cf','#F0F3BD'],
+   colors:['#F16745','#FFC65D','#7BC8A4','#4CC3D9','#93648D','#404040'],
    pieHole: 0.7,
-   pieSliceTextStyle: {
-      color: 'black',
-   },
-   legend: 'none'
+   pieSliceText:'none',
+   legend: 'none',
+   height:400,
+   pieSliceBorderColor:"transparent",
+   pieResidueSliceColor:'#000000',
+   pieStartAngle:22
 };
 
  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
  chart.draw(data, options);
+ loadAnimation();
+}
+function loadAnimation(){
+  var container = $("#donutchart");
 }
