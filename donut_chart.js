@@ -1,34 +1,53 @@
-google.charts.load("current", {packages:["corechart"]});
-google.charts.setOnLoadCallback(drawChart);
-function drawChart() {
- var data = google.visualization.arrayToDataTable([
-   ['Language', 'Score'],
-   ['Html',         8],
-   ['JS & JQuery',  9],
-   ['Css',          7],
-   ['Java',         8],
-   ['Android',      8],
-   ['Xml',          6]
- ]);
+var myDoughnutChart = null;
+var direction = null;
 
- var options = {
-   backgroundColor: {
-    fill:'transparent',
-   },
-   colors:['#F16745','#FFC65D','#7BC8A4','#4CC3D9','#93648D','#404040'],
-   pieHole: 0.7,
-   pieSliceText:'none',
-   legend: 'none',
-   height:400,
-   pieSliceBorderColor:"transparent",
-   pieResidueSliceColor:'#000000',
-   pieStartAngle:22
-};
-
- var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
- chart.draw(data, options);
- loadAnimation();
+function setDoughnutHidden(){
+  $(".chart_wrapper").html(" ");
+  $(".chart_wrapper").html("<canvas id='Doughnut_Chart'></canvas>");
 }
-function loadAnimation(){
-  var container = $("#donutchart");
+function updateDoughnut(){
+  var ctx = $("#Doughnut_Chart");
+  $(myDoughnutChart).attr("style","visibility:visible");
+  myDoughnutChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+          labels: ["Html", "Css", "JS & JQuery", "Java", "Android", "Xml"],
+          datasets: [{
+              label: '# of Votes',
+              data: [8, 10, 7, 9, 8, 6],
+              backgroundColor: [
+                  '#F16745',
+                  '#FFC65D',
+                  '#7BC8A4',
+                  '#4CC3D9',
+                  '#93648D',
+                  '#404040'
+              ],
+              borderColor: [
+                  '#2c313b',
+                  '#2c313b',
+                  '#2c313b',
+                  '#2c313b',
+                  '#2c313b',
+                  '#2c313b',
+              ],
+              borderWidth: 3
+          }]
+      },
+    options: {
+
+      cutoutPercentage:60,
+      currentStep: 0,
+    	numSteps: 60,
+    	easing: "easeOutCirc",
+    	animateRotate: true,
+    	animateScale: true,
+      render:null,
+      onAnimationProgress: null,
+    	onAnimationComplete: null,
+      legend: {
+        display:false,
+      }
+    },
+  });
 }

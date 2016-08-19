@@ -24,6 +24,22 @@ function SwitchCard(nextPath){
   }
 }
 
+function updateCardLoading(){
+  console.log("loading");
+  var card_name = $(nextCard).attr("id");
+  if(card_name == "Skills_Content"){
+    console.log("in-loading");
+    setDoughnutHidden();
+  }
+}
+function updateCardLoaded(){
+  console.log("loaded");
+  var card_name = $(currentCard).attr("id");
+  if(card_name == "Skills_Content"){
+    console.log("in-loaded");
+    updateDoughnut("Out");
+  }
+}
 function RotateCard(direction){
   var action = 0;
   var container_width = $("#ContentDisplay").width();
@@ -32,11 +48,12 @@ function RotateCard(direction){
     action = 1;
   else if(direction == "forward")
 		action = -1;
-
+    
   $(currentCard).animate({
     left: container_width*action,
     opacity: 0,
   },500,function(){
+    updateCardLoading();
     $(nextCard).attr("style","left:"+(container_width*action*-1)+"; opacity:0;");
     $(nextCard).removeClass("content_hidden");
     $(nextCard).addClass("content_visible");
@@ -48,6 +65,7 @@ function RotateCard(direction){
      $(currentCard).addClass("content_hidden");
      currentCard = nextCard;
      duringTransition = false;
+     updateCardLoaded();
    });
   });
 }
