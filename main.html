@@ -4,15 +4,18 @@
   <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="Chart.js"></script>
+  <script src="page_rotation.js"></script>
   <script src="card_rotation.js"></script>
   <script src="donut_chart.js"></script>
+  <script src="contact_text.js"></script>
+  <script src="script.js"></script>
 </head>
 <body>
   <div class="navigation_bar_container">
     <div class="navigation_bar_wrapper">
       <ul>
         <li class="contact_nav list_item">
-          <a href="#" onclick="SwitchCard('Contact_Content')">Contact</a>
+          <a href="#" onclick="RotatePage()">Contact</a>
         </li>
         <li class="experience_nav list_item">
           <a href="#" onclick="SwitchCard('Experience_Content')">Experience</a>
@@ -192,11 +195,27 @@
             </div>
           </div>
         </div>
-        <div id="Contact_Content" class="content_card content_hidden" data-id="4">
-        </div>
       </div>
     </div>
     <br style="clear:both;">
+    <div id="Contact_Content" class="xCenter">
+      <div class="contact_wrapper">
+          <div class="github_wrapper item" onmouseover="OpenText(this)">
+            <img src="Images/github_icon.png" class="github_icon" style="float:left"/>
+            <div class="text_wrapper" style="float:right">
+              <p class="text" style="float:right">https://github.com/tantialex</p>
+            </div>
+            <br style="clear:both">
+          </div>
+          <div class="email_wrapper item" onmouseover="OpenText(this)">
+            <img src="Images/email_icon.png" class="email_icon" style="float:left"/>
+            <div class="text_wrapper" style="float:right">
+              <p class="text">atanti98@gmail.com</p>
+            </div>
+            <br style="clear:both">
+          </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

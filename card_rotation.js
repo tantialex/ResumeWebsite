@@ -1,14 +1,13 @@
 var currentCard = null;
 var nextCard = null;
-var duringTransition = false;
+var duringCardTransition = false;
 
-$(window).load(function(){
+function setCurrentCard(){
   currentCard = $("#About_Content");
-})
+}
 
 function SwitchCard(nextPath){
-  if(!duringTransition){
-    duringTransition = true;
+  if(!duringCardTransition && !duringPageTransition){
     nextCard = $("#"+nextPath);
     var currentCard_id = $(currentCard).attr("data-id");
     var nextCard_id = $(nextCard).attr("data-id");
@@ -41,6 +40,10 @@ function updateCardLoaded(){
   }
 }
 function RotateCard(direction){
+  if(isRotated){
+    RotatePage();
+  }
+  duringCardTransition = true;
   var action = 0;
   var container_width = $("#ContentDisplay").width();
 
@@ -48,7 +51,7 @@ function RotateCard(direction){
     action = 1;
   else if(direction == "forward")
 		action = -1;
-    
+
   $(currentCard).animate({
     left: container_width*action,
     opacity: 0,
@@ -64,7 +67,7 @@ function RotateCard(direction){
      $(currentCard).removeClass("content_visible");
      $(currentCard).addClass("content_hidden");
      currentCard = nextCard;
-     duringTransition = false;
+     duringCardTransition = false;
      updateCardLoaded();
    });
   });
