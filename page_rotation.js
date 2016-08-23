@@ -19,7 +19,7 @@ function setPanels(){
 function RotatePage(){
   if(!duringCardTransition && !duringCardTransition){
   duringPageTransition = true;
-  main_panel_width = $(main_panel).width()*95/100;
+  main_panel_width = $(main_panel).width();
   main_panel_height = $(main_panel).height();
   left_panel_width = $(left_panel).width();
   right_panel_width = $(right_panel).width();
@@ -56,6 +56,7 @@ function CloseContacts(){
   }});
 }
 function OpenContacts(){
+  console.log(main_panel_width);
   $(right_panel).animate({
     opacity:0
   },{ duration: 200, queue: true, complete:function(){
@@ -66,17 +67,27 @@ function OpenContacts(){
       width:main_panel_width
     },{ duration: 1000, queue: false, complete:function(){
       $(left_panel).animate({
-        height:(main_panel_height*58/100),
+        height:(main_panel_height*50/100),
       },{duration:1000, queue: false});
       $(right_panel).animate({
         height:(main_panel_height*50/100),
       },{duration:1000, queue: false});
       $(bottom_panel).animate({
-        height:(main_panel_height*50/100),
+        height:(main_panel_height*65/100),
         opacity:1
       },{duration:1000, queue: false});
+
       isRotated = true;
       duringPageTransition = false;
+      console.log(main_panel_width);
     }});
   }});
 }
+
+$(window).resize(function(){
+  if(isRotated){
+    $(left_panel).css("width",$(main_panel).width());
+    $(left_panel).css("height",$(main_panel).height()*50/100);
+    $(bottom_panel).css("height",$(main_panel).height()*65/100);
+  }
+});
