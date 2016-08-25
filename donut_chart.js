@@ -74,9 +74,6 @@ function getGitHub(){
        });
        loop++;
       }
-      /**setTimeout(function(){
-        setDataArrays(array);
-      }, 100);*/
     }
   });
 }
