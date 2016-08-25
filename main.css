@@ -261,10 +261,14 @@ a:hover{
     background-position: 25px 25px;
   }
 }
-
+#Skills_Content .container .chart_text{
+  width:100%;
+  text-align:center;
+  font-size:16px;
+}
 #Skills_Content .container .chart_wrapper{
   position:relative;
-  width:60%;
+  width:45%;
   height:100%;
 }
 #Experience_Content .container .display_container{

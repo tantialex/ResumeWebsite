@@ -24,14 +24,6 @@ function updateDoughnut(){
           }]
       },
     options: {
-      title:{
-        display:true,
-        fontSize: 18,
-        fontColor: "#FFFEEB",
-        fontFamily: "'Space Mono', monospace",
-        text:'Github Lines of Code',
-        padding:30,
-      },
       cutoutPercentage:60,
       currentStep: 0,
     	numSteps: 60,
@@ -113,6 +105,11 @@ function setDataArrays(array){
     arrayColors.push(color);
     arrayValues.push(value);
   });
+  var total = 0;
+  $.each(arrayValues,function(index, value){
+    total += value;
+  });
+  $(".chart_text .total").html(total);
   console.log(arrayLabels);
   console.log(arrayValues);
 }
