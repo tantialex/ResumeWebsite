@@ -1,5 +1,8 @@
 var myDoughnutChart = null;
 var direction = null;
+var arrayLabels = [];
+var arrayValues = [];
+var arrayColors = [];
 
 function setDoughnutHidden(){
   $(".chart_wrapper").html(" ");
@@ -11,31 +14,24 @@ function updateDoughnut(){
   myDoughnutChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
-          labels: ["Html", "Css", "JS & JQuery", "Java", "Android", "Xml"],
+          labels: arrayLabels,
           datasets: [{
               label: '# of Votes',
-              data: [8, 10, 7, 9, 8, 6],
-              backgroundColor: [
-                  '#F16745',
-                  '#FFC65D',
-                  '#7BC8A4',
-                  '#4CC3D9',
-                  '#93648D',
-                  '#404040'
-              ],
-              borderColor: [
-                  '#2c313b',
-                  '#2c313b',
-                  '#2c313b',
-                  '#2c313b',
-                  '#2c313b',
-                  '#2c313b',
-              ],
+              data: arrayValues,
+              backgroundColor:arrayColors,
+              borderColor: '#2c313b',
               borderWidth: 3
           }]
       },
     options: {
-
+      title:{
+        display:true,
+        fontSize: 18,
+        fontColor: "#FFFEEB",
+        fontFamily: "'Space Mono', monospace",
+        text:'Github Lines of Code',
+        padding:30,
+      },
       cutoutPercentage:60,
       currentStep: 0,
     	numSteps: 60,
@@ -50,4 +46,68 @@ function updateDoughnut(){
       }
     },
   });
+}
+
+function getGitHub(){
+  var array= {};
+  $.ajax({
+    type: "GET",
+    url: "https://api.github.com/users/tantialex/repos",
+    dataType: "json",
+    success: function(repos) {
+      for(var i in repos) {
+        $.ajax({
+       	type: "GET",
+        url: ""+repos[i].languages_url,
+        dataType: "json",
+        success: function(lang){
+        	$.each(lang,function(index, value){
+            var isPresent = false;
+          	$.each(array,function(arrayIndex, arrayValue){
+            	if(index == arrayIndex){
+              	array[index] = array[index]+value;
+                isPresent = true;
+              }
+            });
+       		  if(!isPresent){
+          	  array[index] = value;
+            }
+          });
+         console.log(array);
+        }
+       });
+      }
+      setTimeout(function(){
+        setDataArrays(array);
+      }, 100);
+    }
+  });
+}
+function setDataArrays(array){
+  $.each(array,function(index,value){
+    var color = "";
+    if(index == "HTML"){
+      color = "#F16745";
+    }
+    else if(index == "JavaScript"){
+      color = "#FFC65D";
+    }
+    else if(index == "CSS"){
+      color = "#7BC8A4";
+    }
+    else if(index == "Java"){
+      color = "#4CC3D9";
+    }
+    else if(index == "Android"){
+      color = "#93648D";
+    }
+    else if(index == "XSLT"){
+      color = "#404040";
+    }
+    arrayLabels.push(index);
+    arrayColors.push(color);
+    arrayValues.push(value);
+  });
+  console.log(arrayLabels);
+  console.log(arrayValues);
 }

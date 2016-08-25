@@ -264,9 +264,8 @@ a:hover{
 
 #Skills_Content .container .chart_wrapper{
   position:relative;
-  width:50%;
-  height:50%;
-  margin-top:20%;
+  width:60%;
+  height:100%;
 }
 #Experience_Content .container .display_container{
   position:relative;
