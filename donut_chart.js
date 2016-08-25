@@ -109,7 +109,18 @@ function setDataArrays(array){
   $.each(arrayValues,function(index, value){
     total += value;
   });
-  $(".chart_text .total").html(total);
+  if(total >= 1000){
+    var sTotal = total.toString();
+    var start = sTotal.substring(0, sTotal.length-3);
+    var end = sTotal.substring(sTotal.length-3, sTotal.length);
+    sTotal = start+","+end;
+    if(total >= 1000000){
+      start = sTotal.substring(0, sTotal.length-7);
+      end = sTotal.substring(sTotal.length-7, sTotal.length);
+      sTotal = start+","+end;
+    }
+  }
+  $(".chart_text .total").html(sTotal);
   console.log(arrayLabels);
   console.log(arrayValues);
 }
