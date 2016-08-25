@@ -50,6 +50,7 @@ function updateDoughnut(){
 
 function getGitHub(){
   var array= {};
+  var loop = 0;
   $.ajax({
     type: "GET",
     url: "https://api.github.com/users/tantialex/repos",
@@ -73,19 +74,23 @@ function getGitHub(){
           	  array[index] = value;
             }
           });
-         console.log(array);
+          loop--;
+          if(loop == 0){
+            setDataArrays(array);
+          }
         }
        });
+       loop++;
       }
-      setTimeout(function(){
+      /**setTimeout(function(){
         setDataArrays(array);
-      }, 100);
+      }, 100);*/
     }
   });
 }
 function setDataArrays(array){
   $.each(array,function(index,value){
-    var color = "";
+    var color = "#FFFFFF";
     if(index == "HTML"){
       color = "#F16745";
     }

@@ -17,6 +17,9 @@ function SwitchCard(nextPath){
     else if(currentCard_id < nextCard_id){
       RotateCard("forward");
     }
+    else if(isRotated){
+      RotatePage();
+    }
     else{
     duringTransition = false;
     }
@@ -24,18 +27,14 @@ function SwitchCard(nextPath){
 }
 
 function updateCardLoading(){
-  console.log("loading");
   var card_name = $(nextCard).attr("id");
   if(card_name == "Skills_Content"){
-    console.log("in-loading");
     setDoughnutHidden();
   }
 }
 function updateCardLoaded(){
-  console.log("loaded");
   var card_name = $(currentCard).attr("id");
   if(card_name == "Skills_Content"){
-    console.log("in-loaded");
     updateDoughnut("Out");
   }
 }
