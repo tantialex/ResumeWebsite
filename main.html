@@ -1,0 +1,223 @@
+<html>
+<head>
+  <link rel="stylesheet" href="main.css" type"text/css">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="Chart.js"></script>
+  <script src="page_rotation.js"></script>
+  <script src="card_rotation.js"></script>
+  <script src="donut_chart.js"></script>
+  <script src="contact_text.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="navigation_bar_container">
+    <div class="navigation_bar_wrapper">
+      <ul>
+        <li class="contact_nav list_item">
+          <a href="#" onclick="RotatePage()">Contact</a>
+        </li>
+        <li class="experience_nav list_item">
+          <a href="#" onclick="SwitchCard('Experience_Content')">Experience</a>
+        </li>
+        <li class="skills_nav list_item">
+          <a href="#" onclick="SwitchCard('Skills_Content')">Skills</a>
+        </li>
+        <li class="about_nav list_item">
+          <a href="#" onclick="SwitchCard('About_Content')">About</a>
+        </li>
+        <br class="clear:both;">
+      </ul>
+    </div>
+  </div>
+  <div class="main_panel_container panel_container xCenter">
+    <div class="left_panel panel" style="float:left;">
+      <div class="content_wrapper">
+        <div class="name_wrapper">
+          <p class="name">Alex Tanti</p>
+        </div>
+        <div class="subtext_wrapper">
+          <p class="subtext">Software Developer & Graphics Designer</p>
+        </div>
+      </div>
+    </div
+    ><div class="right_panel panel" style="float:right;">
+      <div id="ContentDisplay" class="content_wrapper">
+        <div id="About_Content" class="content_card content_visible" data-id="1">
+          <div class="container">
+            <div class="text_wrapper xCenter">
+              <p class="about_description">
+                A university student with background knowlegde of front and back end developement. Offering creative design solutions & building web platforms is what I do best. At 18 years of age, certified work experience is but a fantasy however I spend most of my free time typing code and drinking coffee.
+                <br><br>I write in JavaScript, CSS, Java, and Html with familiarity to other languages such as Xml, C# and C++.
+                <br><br>As a developer and a designer, I am confident that my combination of skills and solid educational experience has prepared me to make a significant contribution to any project I potentially embark on.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="Skills_Content" class="content_card content_hidden" data-id="2">
+          <div class="container">
+            <div class="top_container">
+              <div class="absolute_wrapper">
+                <div class="left_panel panel" style="float:left">
+                  <div class="bar_wrapper">
+                    <div class="bar_row">
+                      <p class="title">Html</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate">
+                          <span style="width: 80%; background-color:#F16745;"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bar_row">
+                      <p class="title">JS & JQuery</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate full">
+                          <span style="width: 100%; background-color:#FFC65D;"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bar_row">
+                      <p class="title">Css</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate">
+                          <span style="width: 70%; background-color:#7BC8A4;"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div
+                ><div class="right_panel panel" style="float:right">
+                  <div class="bar_wrapper">
+                    <div class="bar_row">
+                      <p class="title">Java</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate">
+                          <span style="width: 90%; background-color:#4CC3D9;"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bar_row">
+                      <p class="title">Android</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate">
+                          <span style="width: 80%; background-color:#93648D;"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bar_row">
+                      <p class="title">Xml & Xslt</p>
+                      <div class="meter_wrapper">
+                        <div class="meter animate">
+                          <span style="width: 60%; background-color:#404040;"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <br style="clear:both">
+              </div>
+            </div>
+            <div class="bottom_container">
+              <div class="absolute_wrapper" style="top:25%;">
+                <div class="chart_wrapper xCenter">
+                  <canvas id="Doughnut_Chart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="Experience_Content" class="content_card content_hidden" data-id="3">
+          <div class="container">
+            <div class="display_container">
+              <a href="http://www.um.edu.mt/" target="_blank">
+                <div class="card_container xCenter" style="margin-top:0;">
+                  <div class="card_wrapper">
+                    <div class="title_wrapper">
+                      <h3 class="title">B.Sc Software Development</h3>
+                    </div>
+                    <div class="date_wrapper">
+                      <p class="date">October 2016 to present</p>
+                    </div>
+                    <div class="description_wrapper">
+                      <p class="description">University of Malta</p>
+                    </div>
+                  </div>
+                  <div class="pointer_wrapper">
+                    <img class="pointer" src="Images/pointer.png"/>
+                  </div>
+                  <div class="backdrop_wrapper">
+                    <img src="Images/uni_backdrop.png" class="backdrop"/>
+                  </div>
+                </div>
+              </a>
+              <a href="http://www.btcbet.us/" target="_blank">
+                <div class="card_container xCenter">
+                  <div class="card_wrapper">
+                    <div class="title_wrapper">
+                      <h3 class="title">BitCoin Gambling Website</h3>
+                    </div>
+                    <div class="date_wrapper">
+                      <p class="date">August 2016 to present</p>
+                    </div>
+                    <div class="description_wrapper">
+                      <p class="description">Front-End developer</p>
+                    </div>
+                  </div>
+                  <div class="pointer_wrapper">
+                    <img class="pointer" src="Images/pointer.png"/>
+                  </div>
+                  <div class="backdrop_wrapper">
+                    <img src="Images/btcbet_backdrop.png" class="backdrop"/>
+                  </div>
+                </div>
+              </a>
+              <a href="http://www.maltaenterprise.com/" target="_blank">
+                <div class="card_container xCenter">
+                  <div class="card_wrapper">
+                    <div class="title_wrapper">
+                      <h3 class="title">Malta Enterprise</h3>
+                    </div>
+                    <div class="date_wrapper">
+                      <p class="date">July 2016 to October 2016</p>
+                    </div>
+                    <div class="description_wrapper">
+                      <p class="description">IT Department</p>
+                    </div>
+                  </div>
+                  <div class="pointer_wrapper">
+                    <img class="pointer" src="Images/pointer.png"/>
+                  </div>
+                  <div class="backdrop_wrapper">
+                    <img src="Images/me_backdrop.png" class="backdrop"/>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br style="clear:both;">
+    <div id="Contact_Content" class="xCenter">
+      <div class="contact_wrapper">
+        <div style="position:absolute; left:50%; transform:translate(-50%,0%);">
+          <div class="github_wrapper item" onmouseover="OpenText(this)">
+            <img src="Images/github_icon.png" class="github_icon" style="float:left"/>
+            <div class="text_wrapper" style="float:right">
+              <p class="text" style="float:right">https://github.com/tantialex</p>
+            </div>
+            <br style="clear:both">
+          </div>
+          <div class="email_wrapper item" onmouseover="OpenText(this)">
+            <img src="Images/email_icon.png" class="email_icon" style="float:left"/>
+            <div class="text_wrapper" style="float:right">
+              <p class="text">atanti98@gmail.com</p>
+            </div>
+            <br style="clear:both">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
