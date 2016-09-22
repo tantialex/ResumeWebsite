@@ -51,7 +51,7 @@ function RotateCard(direction){
   else if(direction == "forward")
 		action = -1;
 
-  $(currentCard).animate({
+  $(currentCard).velocity({
     left: container_width*action,
     opacity: 0,
   },500,function(){
@@ -59,7 +59,7 @@ function RotateCard(direction){
     $(nextCard).attr("style","left:"+(container_width*action*-1)+"; opacity:0;");
     $(nextCard).removeClass("content_hidden");
     $(nextCard).addClass("content_visible");
-    $(nextCard).animate({
+    $(nextCard).velocity({
      left:0,
      opacity: 1,
    },500,function(){

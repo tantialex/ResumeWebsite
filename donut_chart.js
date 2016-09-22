@@ -106,18 +106,17 @@ function setDataArrays(array){
   $.each(arrayValues,function(index, value){
     total += value;
   });
-  if(total >= 1000){
-    var sTotal = total.toString();
-    var start = sTotal.substring(0, sTotal.length-3);
-    var end = sTotal.substring(sTotal.length-3, sTotal.length);
-    sTotal = start+","+end;
-    if(total >= 1000000){
-      start = sTotal.substring(0, sTotal.length-7);
-      end = sTotal.substring(sTotal.length-7, sTotal.length);
-      sTotal = start+","+end;
-    }
+  console.log(total);
+  total = Math.round(total);
+  total = total.toString();
+  var j = Math.floor((total.length-1)/3);
+  for(var i = 0; i < j; i++){
+    var start = total.substring(0,(total.length-(3*(i+1))-i));
+    var end = total.substring((total.length-(3*(i+1))-i),total.length);
+    total = start + (",") + end;
   }
-  $(".chart_text .total").html(sTotal);
+  $(".chart_text .total").html(total);
+
   console.log(arrayLabels);
   console.log(arrayValues);
 }
